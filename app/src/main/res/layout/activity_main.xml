@@ -2,44 +2,51 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:theme="@style/EdittextTheme">
 
 
     <ImageView
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_width="100px"
         android:layout_height="100px"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/searching"/>
 
     <EditText
         android:id="@+id/search"
         android:layout_marginLeft="154px"
-        android:layout_marginBottom="1dp"
         android:layout_width="250dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_above="@+id/weather"/>
 
     <Button
+        android:id="@+id/search_btn"
         android:layout_width="95dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginBottom="1dp"
         android:layout_marginLeft="320dp"
         android:background="#FFCCCC"
+        android:textSize="20dp"
         android:text="검색" />
 
     <Button
         android:id="@+id/weather"
-        android:layout_below="@+id/search"
+        android:layout_below="@+id/search_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:width="412dp"
         android:height="116dp"
         android:background="#FF9999"
-        android:textSize="18dp"
+        android:textSize="24dp"
         android:text="오늘의 날씨"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="40dp"
+        android:drawableLeft="@drawable/smile_sun"
+        android:drawableRight="@drawable/smile_sun"/>
 
     <Button
         android:id="@+id/library"
@@ -51,10 +58,11 @@
         android:width="205dp"
         android:height="178dp"
         android:background="#FF9999"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:text="도서관"
         android:textColor="#000"
-        android:drawableBottom="@drawable/man"/>
+        android:padding="40dp"
+        android:drawableTop="@drawable/man"/>
 
     <Button
         android:id="@+id/park"
@@ -66,9 +74,11 @@
         android:width="205dp"
         android:height="178dp"
         android:background="#FF9999"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text="공원"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="40dp"
+        android:drawableTop="@drawable/park"/>
 
     <Button
         android:id="@+id/museum_art"
@@ -79,9 +89,11 @@
         android:width="205dp"
         android:height="152dp"
         android:background="#FF9999"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text="박물관 및 미술관"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="32dp"
+        android:drawableTop="@drawable/exhibition"/>
 
     <Button
         android:id="@+id/perform"
@@ -93,9 +105,11 @@
         android:width="205dp"
         android:height="152dp"
         android:background="#FF9999"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text="공연"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="30dp"
+        android:drawableTop="@drawable/perform"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -105,9 +119,11 @@
         android:width="205dp"
         android:height="152dp"
         android:background="#FF9999"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text="체험 학습"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="30dp"
+        android:drawableTop="@drawable/bus"/>
 
     <Button
         android:id="@+id/toilet"
@@ -119,7 +135,9 @@
         android:width="205dp"
         android:height="152dp"
         android:background="#FF9999"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text="화장실"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="30dp"
+        android:drawableTop="@drawable/toilet"/>
 </RelativeLayout>
