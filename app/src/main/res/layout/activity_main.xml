@@ -6,28 +6,32 @@
     android:theme="@style/EdittextTheme">
 
 
-    <ImageView
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="100px"
-        android:layout_height="100px"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/searching"/>
+    <Button
+        android:id="@+id/location"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:text="지역별"/>
+    <Button
+        android:id="@+id/category"
+        android:layout_toRightOf="@+id/location"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:text="분야별"/>
 
     <EditText
         android:id="@+id/search"
-        android:layout_marginLeft="154px"
-        android:layout_width="250dp"
+        android:layout_toRightOf="@+id/category"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:layout_above="@+id/weather"/>
 
     <Button
         android:id="@+id/search_btn"
-        android:layout_width="95dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/search"
         android:layout_marginBottom="1dp"
-        android:layout_marginLeft="320dp"
         android:background="#FFCCCC"
         android:textSize="20dp"
         android:text="검색" />
@@ -39,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:width="412dp"
-        android:height="116dp"
+        android:height="126dp"
         android:background="#FF9999"
         android:textSize="24dp"
         android:text="오늘의 날씨"
