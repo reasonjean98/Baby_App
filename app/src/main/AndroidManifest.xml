@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.baby_app">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".toiletActivity"></activity>
+        <activity android:name=".museum_artActivity" />
+        <activity android:name=".performActivity" />
+        <activity android:name=".parkActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAzxmH3PE9ZJ7SGtN77wl6S2jNN6HlF7Wc"/>
+            android:value="AIzaSyAzxmH3PE9ZJ7SGtN77wl6S2jNN6HlF7Wc" />
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity
             android:name=".Splash"
@@ -29,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".libraryActivity"/>
+        <activity android:name=".libraryActivity" />
     </application>
 
 </manifest>
