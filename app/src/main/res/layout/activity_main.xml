@@ -116,6 +116,7 @@
         android:drawableTop="@drawable/perform"/>
 
     <Button
+        android:id="@+id/field_study"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/museum_art"

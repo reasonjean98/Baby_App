@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".toiletActivity"></activity>
+        <activity android:name=".field_studyActivity"></activity>
+        <activity android:name=".toiletActivity" />
         <activity android:name=".museum_artActivity" />
         <activity android:name=".performActivity" />
         <activity android:name=".parkActivity" />
