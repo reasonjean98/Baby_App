@@ -47,8 +47,18 @@ public class libraryActivity extends AppCompatActivity implements OnMapReadyCall
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(),arrayList.get(i)+"가 선택되었습니다.",
-                        Toast.LENGTH_SHORT).show();
+
+                switch (i){
+                    case 0:
+                        Toast.makeText(getApplicationContext(),arrayList.get(i)+"가 선택되었습니다.",
+                                Toast.LENGTH_SHORT).show();
+                    case 1:
+                        Toast.makeText(getApplicationContext(),arrayList.get(i)+"가 선택되었습니다.",
+                                Toast.LENGTH_SHORT).show();
+                    case 2:
+                        Toast.makeText(getApplicationContext(),arrayList.get(i)+"가 선택되었습니다.",
+                                Toast.LENGTH_SHORT).show();
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {

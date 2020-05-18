@@ -6,22 +6,24 @@
     android:theme="@style/EdittextTheme">
 
 
-    <Button
+    <Spinner
         android:id="@+id/location"
-        android:layout_width="65dp"
+        android:layout_width="80dp"
         android:layout_height="50dp"
-        android:text="지역별"/>
-    <Button
+        android:text="지역별"
+        android:spinnerMode="dropdown"/>
+    <Spinner
         android:id="@+id/category"
         android:layout_toRightOf="@+id/location"
-        android:layout_width="65dp"
+        android:layout_width="80dp"
         android:layout_height="50dp"
-        android:text="분야별"/>
+        android:text="분야별"
+        android:spinnerMode="dropdown"/>
 
     <EditText
         android:id="@+id/search"
         android:layout_toRightOf="@+id/category"
-        android:layout_width="210dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:layout_above="@+id/weather"/>
