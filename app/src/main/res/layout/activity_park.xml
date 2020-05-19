@@ -4,20 +4,10 @@
     android:layout_height="match_parent"
     android:background="#FFCCCC">
 
-    <Spinner
-        android:id="@+id/spinner_location1"
-        android:layout_width="130dp"
-        android:layout_height="35dp"
-        android:layout_alignParentLeft="true"
-        android:overlapAnchor="false"
-        android:spinnerMode="dropdown"
-        android:entries="@array/location_array"/>
-
     <TextView
         android:id="@+id/parkname"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_toRightOf="@+id/spinner_location1"
         android:gravity="center"
         android:text="공원"
         android:textColor="#000000"
@@ -25,12 +15,23 @@
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/spinner_category"
-        android:layout_alignParentRight="true"
-        android:layout_width="150dp"
+        android:id="@+id/spinner_location1"
+        android:layout_below="@+id/parkname"
+        android:layout_width="170dp"
         android:layout_height="35dp"
         android:overlapAnchor="false"
         android:spinnerMode="dropdown"
+        android:layout_alignParentLeft="true"
+        android:entries="@array/location_array"/>
+
+    <Spinner
+        android:id="@+id/spinner_category"
+        android:layout_width="240dp"
+        android:layout_height="35dp"
+        android:overlapAnchor="false"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/parkname"
+        android:layout_alignParentRight="true"
         android:entries="@array/park_category"/>
 
     <fragment

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="study">
+        <item>분야별</item>
+        <item></item>
+        <item>1000m</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="selection">
+        <item>구분별</item>
+        <item>국립</item>
+        <item>공립</item>
+        <item>사립</item>
+        <item>대학</item>
+    </string-array>
+</resources>

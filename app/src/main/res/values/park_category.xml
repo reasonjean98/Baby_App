@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="park_category">
+        <item>전체</item>
         <item>어린이공원</item>
         <item>문화공원</item>
         <item>근린공원</item>
