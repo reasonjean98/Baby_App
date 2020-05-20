@@ -19,15 +19,16 @@
         android:text="공연"/>
 
     <Spinner
-        android:id="@+id/spinner_han"
+        android:id="@+id/spinner_age"
         android:layout_below="@+id/field_study"
         android:layout_width="160dp"
         android:layout_height="35dp"
         android:overlapAnchor="false"
-        android:spinnerMode="dropdown"/>
+        android:spinnerMode="dropdown"
+        android:entries="@array/age"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/spinner_han"/>
+        android:layout_below="@+id/spinner_age"/>
 </RelativeLayout>
