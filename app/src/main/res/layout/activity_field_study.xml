@@ -38,7 +38,7 @@
         android:entries="@array/city"/>
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/study_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/spinner_category1"/>

@@ -21,13 +21,24 @@
     <Spinner
         android:id="@+id/spinner_age"
         android:layout_below="@+id/field_study"
-        android:layout_width="160dp"
+        android:layout_width="205dp"
         android:layout_height="35dp"
         android:overlapAnchor="false"
         android:spinnerMode="dropdown"
         android:entries="@array/age"/>
 
+    <Spinner
+        android:id="@+id/spinner_category2"
+        android:layout_below="@+id/field_study"
+        android:layout_alignParentRight="true"
+        android:layout_width="205dp"
+        android:layout_height="35dp"
+        android:overlapAnchor="false"
+        android:spinnerMode="dropdown"
+        android:entries="@array/field_perform"/>
+
     <ListView
+        android:id="@+id/age_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/spinner_age"/>
