@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sDetailActivity"></activity>
+        <activity android:name=".sdetailActivity"></activity>
         <activity android:name=".field_studyActivity" />
         <activity android:name=".toiletActivity" />
         <activity android:name=".museum_artActivity" />
