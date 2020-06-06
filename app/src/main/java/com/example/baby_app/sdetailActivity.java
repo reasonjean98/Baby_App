@@ -2,28 +2,42 @@ package com.example.baby_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.TabActivity;
 import android.os.Bundle;
-import android.widget.TabHost;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-@SuppressWarnings("deprecation")
-public class sdetailActivity extends TabActivity {
+
+public class sdetailActivity extends AppCompatActivity {
+    Button Map, Detail;
+    LinearLayout Detail_layout, Map_layout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sdetail);
 
-        TabHost tabHost = getTabHost();
+        Map = (Button) findViewById(R.id.Map);
+        Detail = (Button) findViewById(R.id.Detail);
+        Detail_layout = (LinearLayout) findViewById(R.id.Detail_layout);
+        Map_layout = (LinearLayout) findViewById(R.id.Map_layout);
 
-        TabHost.TabSpec tabSpecSong = tabHost.newTabSpec("Detail").setIndicator("상세정보보기");
-        tabSpecSong.setContent(R.id.Detail);
-        tabHost.addTab(tabSpecSong);
+        Map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Detail_layout.setVisibility(View.GONE);
+                Map_layout.setVisibility(View.VISIBLE);
+            }
+        });
 
-        TabHost.TabSpec tabSpecArtist = tabHost.newTabSpec("Map").setIndicator("지도보기");
-        tabSpecArtist.setContent(R.id.Map);
-        tabHost.addTab(tabSpecArtist);
-
-        tabHost.setCurrentTab(0);
+        Detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Detail_layout.setVisibility(View.VISIBLE);
+                Map_layout.setVisibility(View.GONE);
+            }
+        });
     }
+
+
 }

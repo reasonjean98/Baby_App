@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(getApplicationContext(), sdetailActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), toiletActivity.class);
                         startActivity(intent);
                     }
                 }
