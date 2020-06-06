@@ -3,13 +3,17 @@ package com.example.baby_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,12 +39,12 @@ public class field_studyActivity extends AppCompatActivity {
         study_listview.setAdapter(study_adapter);
 
         db = myHelper.getReadableDatabase();
-        Cursor cursor_w;
+        final Cursor cursor_w;
         cursor_w = db.rawQuery("SELECT * FROM study;", null);
 
         cursor_w.moveToFirst();
 
-        for(int i = 0; i < cursor_w.getCount(); i++){
+        for (int i = 0; i < cursor_w.getCount(); i++) {
             String study_name = cursor_w.getString(0);
             study_arraylist.add(study_name);
             study_adapter.notifyDataSetChanged();
@@ -49,10 +53,45 @@ public class field_studyActivity extends AppCompatActivity {
 
         cursor_w.close();
         db.close();
+
+        study_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(getApplicationContext(), sdetailActivity.class);
+                intent.putExtra("name", study_arraylist.get(position));
+                startActivity(intent);
+            }
+        });
+
+        spinner_category1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+                String var = spinner_category1.getSelectedItem().toString();
+                db = myHelper.getReadableDatabase();
+                final Cursor cursor_w;
+                cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection = ('" + var + "');", null);
+
+                cursor_w.moveToFirst();
+
+                for(int i = 0; i < cursor_w.getCount(); i++){
+                    String perform_name = cursor_w.getString(0);
+                    study_arraylist.add(perform_name);
+                    study_adapter.notifyDataSetChanged();
+                    cursor_w.moveToNext();
+            }
+
+                cursor_w.close();
+                db.close();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
-
-
-
     public class myDBHelper extends SQLiteOpenHelper{
         public myDBHelper(Context context) {
             super(context, "Baby_app.db", null, 1);

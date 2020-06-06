@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".sdetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,12 +30,14 @@
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:background="#FFCCCC"
+            android:textSize="18dp"
             android:text="상세정보보기"/>
         <Button
             android:id="@+id/Map"
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:background="#FFCCCC"
+            android:textSize="18dp"
             android:text="지도보기"/>
         </LinearLayout>
     <FrameLayout
@@ -48,7 +51,6 @@
             android:background="#FFCCCC"
             android:orientation="vertical">
             <!-- 글 쓰는 부분 -->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -56,34 +58,96 @@
                 android:background="#FAFAFA"
                 android:orientation="vertical"
                 android:padding="10dp">
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:textStyle="bold"
-                    android:text="마을명 : "
-                    android:textSize="20dp"/>
-                <TextView
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="마을명"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/country_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:textStyle="bold"
-                    android:text="체험학습명 : "
-                    android:textSize="20dp"/>
-                <TextView
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:text="주소"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:textStyle="bold"
-                    android:text="주소 : "
-                    android:textSize="20dp"/>
-                <TextView
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="전화번호"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="phone"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:textStyle="bold"
-                    android:text="전화번호 : "
-                    android:textSize="20dp"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="홈페이지"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/homepage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"
+                        android:linksClickable="true"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="120dp"
+                        android:text="체험명"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/program_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
