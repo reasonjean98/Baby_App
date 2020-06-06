@@ -2,11 +2,11 @@
 <resources>
     <string-array name="study_selection">
         <item>분야별</item>
-        <item>만들기 체험</item>
-        <item>전통문화 체험</item>
-        <item>전통음식 체험</item>
-        <item>어촌생활 체험</item>
-        <item>농작물경작 체험</item>
+        <item>만들기체험</item>
+        <item>전통문화체험</item>
+        <item>전통음식체험</item>
+        <item>어촌생활체험</item>
+        <item>농작물경작체험</item>
         <item>기타</item>
     </string-array>
 </resources>

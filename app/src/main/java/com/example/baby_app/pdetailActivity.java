@@ -12,13 +12,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class pdetailActivity extends AppCompatActivity {
 
     Button Map, Detail;
     LinearLayout Detail_layout, Map_layout;
     myDBHelper myHelper;
     SQLiteDatabase db;
-    TextView perform_name, perform_date, perform_time, perform_home;
+    TextView perform_name, perform_date, perform_time, perform_home, perform_age;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class pdetailActivity extends AppCompatActivity {
         perform_time = (TextView) findViewById(R.id.perform_time);
         perform_home = (TextView) findViewById(R.id.perform_home);
         perform_date = (TextView) findViewById(R.id.perform_date);
+        perform_age = (TextView) findViewById(R.id.perform_age);
         Map = (Button) findViewById(R.id.Map);
         Detail = (Button) findViewById(R.id.Detail);
         Detail_layout = (LinearLayout) findViewById(R.id.Detail_layout);
@@ -58,8 +61,8 @@ public class pdetailActivity extends AppCompatActivity {
                     perform_name.setText(cursor_w.getString(0));
                     perform_date.setText(cursor_w.getString(1));
                     perform_home.setText(cursor_w.getString(2));
+                    perform_age.setText(cursor_w.getString(3));
                     perform_time.setText(cursor_w.getString(4));
-
                 }
 
                 cursor_w.close();

@@ -66,23 +66,288 @@ public class field_studyActivity extends AppCompatActivity {
         spinner_category1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if(spinner_category1.getSelectedItem().toString().equals("만들기체험")){
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_category1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
 
-                String var = spinner_category1.getSelectedItem().toString();
-                db = myHelper.getReadableDatabase();
-                final Cursor cursor_w;
-                cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection = ('" + var + "');", null);
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_category1.getSelectedItem().toString().equals("전통문화체험")){
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_category1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
 
-                cursor_w.moveToFirst();
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_category1.getSelectedItem().toString().equals("전통음식체험")){
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_category1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
 
-                for(int i = 0; i < cursor_w.getCount(); i++){
-                    String perform_name = cursor_w.getString(0);
-                    study_arraylist.add(perform_name);
-                    study_adapter.notifyDataSetChanged();
-                    cursor_w.moveToNext();
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_category1.getSelectedItem().toString().equals("어촌생활체험")){
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_category1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_category1.getSelectedItem().toString().equals("농작물경작체험")){
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_category1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_category1.getSelectedItem().toString().equals("기타")){
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_category1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE program_selection like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
             }
 
-                cursor_w.close();
-                db.close();
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinner_city1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if(spinner_city1.getSelectedItem().toString().equals("경기도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("강원도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("경상북도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("경상남도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("전라북도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("전라남도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var1 = spinner_city1.getSelectedItem().toString();
+                    String var2 = "광주광역시";
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var1 + "') or City_name like ('" + var2 + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("충청남도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("충청북도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = spinner_city1.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+                else if(spinner_city1.getSelectedItem().toString().equals("제주도")){
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String var = "제주특별자치도";
+                    cursor_w = db.rawQuery("SELECT * FROM study WHERE City_name like ('" + var + "');", null);
+                    cursor_w.moveToFirst();
+                    study_arraylist.clear();
+                    for(int i = 0; i < cursor_w.getCount(); i++){
+                        String perform_name = cursor_w.getString(0);
+                        study_arraylist.add(perform_name);
+                        study_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
             }
 
             @Override
