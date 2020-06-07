@@ -9,7 +9,7 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
 
         try{
-            Thread.sleep(2000);
+            Thread.sleep(1500);
         }catch(InterruptedException e){
             e.printStackTrace();
         }
