@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.util.List;
 
 public class pdetailActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -90,17 +92,34 @@ public class pdetailActivity extends AppCompatActivity implements OnMapReadyCall
 
     public void onMapReady(final GoogleMap googleMap) {
         mMap = googleMap;
-        Geocoder g = new Geocoder(this);
+        final Geocoder g = new Geocoder(this);
         List<Address> address = null;
+        db = myHelper.getReadableDatabase();
+        final Cursor cursor_w;
+        String var = getIntent().getStringExtra("name");
+        cursor_w = db.rawQuery("SELECT * FROM perform WHERE perform_name = ('" + var + "');", null);
+        cursor_w.moveToFirst();
 
-        LatLng kunsan = new LatLng(35.6341117118, 129.3329628045);
+        List<Address> list = null;
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(kunsan);
-        markerOptions.title("민우빌딩");
-        mMap.addMarker(markerOptions);
+        for (int i = 0; i < cursor_w.getCount(); i++) {
+            String title = cursor_w.getString(0);
+            String location = cursor_w.getString(6);
+            try {
+                list = g.getFromLocationName(location, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            LatLng kunsan = new LatLng(list.get(0).getLatitude(), list.get(0).getLongitude());
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 15));
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(kunsan);
+            markerOptions.title(title);
+            mMap.addMarker(markerOptions);
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 15));
+            cursor_w.moveToNext();
+        }
     }
 }

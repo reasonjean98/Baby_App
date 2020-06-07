@@ -26,9 +26,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAzxmH3PE9ZJ7SGtN77wl6S2jNN6HlF7Wc" />
 
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <activity
             android:name=".Splash"

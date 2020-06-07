@@ -2,6 +2,10 @@ package com.example.baby_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,13 +23,17 @@ public class toiletActivity extends AppCompatActivity implements OnMapReadyCallb
 
     private GoogleMap mMap;
     Spinner spinner;
-
+    myDBHelper myHelper;
+    SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toilet);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        myHelper = new myDBHelper(this);
+        db = myHelper.getReadableDatabase();
         spinner = (Spinner) findViewById(R.id.spinner_location3);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -47,21 +55,51 @@ public class toiletActivity extends AppCompatActivity implements OnMapReadyCallb
             }
         });
     }
+    public class myDBHelper extends SQLiteOpenHelper {
+        public myDBHelper(Context context) {
+            super(context, "Baby_app.db", null, 1);
+        }
 
+        public void onCreate(SQLiteDatabase db) {
 
-    @Override
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
+        }
+    }
+
     public void onMapReady(final GoogleMap googleMap) {
 
         mMap = googleMap;
+        db = myHelper.getReadableDatabase();
+        final Cursor cursor_w;
 
-        LatLng kunsan = new LatLng(35.6341117118, 129.3329628045);
+        cursor_w = db.rawQuery("SELECT * FROM toilet order by random() limit 2000;", null);
+        cursor_w.moveToFirst();
 
+        for (int i = 0; i < cursor_w.getCount() ; i++) {
+            String title = cursor_w.getString(0);
+            float latitude = cursor_w.getFloat(16);
+            float longitude = cursor_w.getFloat(17);
+            LatLng kunsan = new LatLng(latitude, longitude);
+
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(kunsan);
+            markerOptions.title(title);
+            mMap.addMarker(markerOptions);
+
+            cursor_w.moveToNext();
+        }
+        LatLng kunsan = new LatLng(37.5652894, 126.849467);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(kunsan);
-        markerOptions.title("민우빌딩");
         mMap.addMarker(markerOptions);
-
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 15));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 13));
+
+        cursor_w.close();
+        db.close();
     }
 }
