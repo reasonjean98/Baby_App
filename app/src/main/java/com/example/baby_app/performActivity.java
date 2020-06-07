@@ -14,11 +14,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.ArrayList;
 
 public class performActivity extends AppCompatActivity {
 
-    Spinner spinner_age,spinner_category2;
+    private GoogleMap mMap;
+    Spinner spinner_age, spinner_category2;
     myDBHelper myHelper;
     SQLiteDatabase db;
     ListView age_listview;
@@ -45,7 +52,7 @@ public class performActivity extends AppCompatActivity {
 
         cursor_w.moveToFirst();
 
-        for(int i = 0; i < cursor_w.getCount(); i++){
+        for (int i = 0; i < cursor_w.getCount(); i++) {
             String perform_name = cursor_w.getString(0);
             age_arraylist.add(perform_name);
             age_adapter.notifyDataSetChanged();
@@ -58,7 +65,7 @@ public class performActivity extends AppCompatActivity {
         spinner_age.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                if(spinner_age.getSelectedItem().toString().equals("만 5세 이상")){
+                if (spinner_age.getSelectedItem().toString().equals("만 5세 이상")) {
                     Toast.makeText(getApplicationContext(), spinner_age.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
@@ -69,7 +76,7 @@ public class performActivity extends AppCompatActivity {
                     cursor_w = db.rawQuery("SELECT * FROM perform WHERE age like ('" + var + "') or age like ('" + var1 + "') or age like ('" + var2 + "') or age like ('" + var3 + "');", null);
                     cursor_w.moveToFirst();
                     age_arraylist.clear();
-                    for(int i = 0; i < cursor_w.getCount(); i++){
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
                         String perform_name = cursor_w.getString(0);
                         age_arraylist.add(perform_name);
                         age_adapter.notifyDataSetChanged();
@@ -78,15 +85,14 @@ public class performActivity extends AppCompatActivity {
 
                     cursor_w.close();
                     db.close();
-                }
-                else if(spinner_age.getSelectedItem().toString().equals("전체관람가")){
+                } else if (spinner_age.getSelectedItem().toString().equals("전체관람가")) {
                     Toast.makeText(getApplicationContext(), spinner_age.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     cursor_w = db.rawQuery("SELECT * FROM perform;", null);
                     cursor_w.moveToFirst();
                     age_arraylist.clear();
-                    for(int i = 0; i < cursor_w.getCount(); i++){
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
                         String perform_name = cursor_w.getString(0);
                         age_arraylist.add(perform_name);
                         age_adapter.notifyDataSetChanged();
@@ -95,8 +101,7 @@ public class performActivity extends AppCompatActivity {
 
                     cursor_w.close();
                     db.close();
-                }
-                else if(spinner_age.getSelectedItem().toString().equals("5세 이하")){
+                } else if (spinner_age.getSelectedItem().toString().equals("5세 이하")) {
                     Toast.makeText(getApplicationContext(), spinner_age.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
@@ -106,7 +111,7 @@ public class performActivity extends AppCompatActivity {
                     cursor_w = db.rawQuery("SELECT * FROM perform WHERE age like ('" + var + "') or age like ('" + var1 + "') or age like ('" + var2 + "');", null);
                     cursor_w.moveToFirst();
                     age_arraylist.clear();
-                    for(int i = 0; i < cursor_w.getCount(); i++){
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
                         String perform_name = cursor_w.getString(0);
                         age_arraylist.add(perform_name);
                         age_adapter.notifyDataSetChanged();
@@ -115,8 +120,7 @@ public class performActivity extends AppCompatActivity {
 
                     cursor_w.close();
                     db.close();
-                }
-                else if(spinner_age.getSelectedItem().toString().equals("만 7세 이상")){
+                } else if (spinner_age.getSelectedItem().toString().equals("만 7세 이상")) {
                     Toast.makeText(getApplicationContext(), spinner_age.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
@@ -133,7 +137,7 @@ public class performActivity extends AppCompatActivity {
                     cursor_w = db.rawQuery("SELECT * FROM perform WHERE age like ('" + var + "') or age like ('" + var1 + "') or age like ('" + var2 + "') or age like ('" + var3 + "') or age like ('" + var4 + "') or age like ('" + var5 + "') or age like ('" + var6 + "') or age like ('" + var7 + "') or age like ('" + var8 + "') or age like ('" + var9 + "');", null);
                     cursor_w.moveToFirst();
                     age_arraylist.clear();
-                    for(int i = 0; i < cursor_w.getCount(); i++){
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
                         String perform_name = cursor_w.getString(0);
                         age_arraylist.add(perform_name);
                         age_adapter.notifyDataSetChanged();
@@ -142,8 +146,7 @@ public class performActivity extends AppCompatActivity {
 
                     cursor_w.close();
                     db.close();
-                }
-                else if(spinner_age.getSelectedItem().toString().equals("만 12세 이상")){
+                } else if (spinner_age.getSelectedItem().toString().equals("만 12세 이상")) {
                     Toast.makeText(getApplicationContext(), spinner_age.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
@@ -159,7 +162,7 @@ public class performActivity extends AppCompatActivity {
                     cursor_w = db.rawQuery("SELECT * FROM perform WHERE age like ('" + var + "') or age like ('" + var1 + "') or age like ('" + var2 + "') or age like ('" + var3 + "') or age like ('" + var4 + "') or age like ('" + var5 + "') or age like ('" + var6 + "') or age like ('" + var7 + "') or age like ('" + var8 + "');", null);
                     cursor_w.moveToFirst();
                     age_arraylist.clear();
-                    for(int i = 0; i < cursor_w.getCount(); i++){
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
                         String perform_name = cursor_w.getString(0);
                         age_arraylist.add(perform_name);
                         age_adapter.notifyDataSetChanged();
@@ -219,11 +222,12 @@ public class performActivity extends AppCompatActivity {
     }
 
 
-    public class myDBHelper extends SQLiteOpenHelper{
+    public class myDBHelper extends SQLiteOpenHelper {
         public myDBHelper(Context context) {
             super(context, "Baby_app.db", null, 1);
         }
-        public void onCreate(SQLiteDatabase db){
+
+        public void onCreate(SQLiteDatabase db) {
 
         }
 

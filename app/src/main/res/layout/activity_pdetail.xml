@@ -10,36 +10,21 @@
         android:layout_height="match_parent"
         android:background="#FFCCCC"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="공연"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="체험학습"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/Detail"
-                android:layout_width="205dp"
-                android:layout_height="wrap_content"
-                android:background="#FFCCCC"
-                android:textSize="18dp"
-                android:text="상세정보보기"/>
-            <Button
-                android:id="@+id/Map"
-                android:layout_width="205dp"
-                android:layout_height="wrap_content"
-                android:background="#FFCCCC"
-                android:textSize="18dp"
-                android:text="지도보기"/>
-        </LinearLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -58,108 +43,131 @@
                     android:background="#FAFAFA"
                     android:orientation="vertical"
                     android:padding="10dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textStyle="bold"
                             android:text="공연명"
-                            android:textSize="16dp"/>
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/perform_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"/>
+                            android:textSize="16dp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textStyle="bold"
-                            android:text="공연 기간"
-                            android:textSize="16dp"/>
+                            android:text="일시"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/perform_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"/>
+                            android:textSize="16dp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textStyle="bold"
-                            android:text="공연장 이름"
-                            android:textSize="16dp"/>
-                        <TextView
-                            android:id="@+id/perform_home"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="16dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:textStyle="bold"
-                            android:text="관람 가능 나이"
-                            android:textSize="16dp"/>
+                            android:text="관람 등급"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/perform_age"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"/>
+                            android:textSize="16dp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textStyle="bold"
                             android:text="공연 시간"
-                            android:textSize="16dp"/>
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/perform_time"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:autoLink="web"
                             android:linksClickable="true"
-                            android:textSize="16dp"/>
+                            android:textSize="16dp" />
                     </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/Map_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FFCCCC"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="20dp"
-                    android:background="#FAFAFA"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:padding="10dp"
+                            android:text="공연 장소"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/perform_home"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:padding="10dp"
+                            android:text="주소"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/perform_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
                     <fragment
                         android:id="@+id/map"
                         android:name="com.google.android.gms.maps.SupportMapFragment"

@@ -6,21 +6,33 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import org.w3c.dom.Text;
 
-public class pdetailActivity extends AppCompatActivity {
+import java.util.List;
 
+public class pdetailActivity extends AppCompatActivity implements OnMapReadyCallback {
+    private GoogleMap mMap;
     Button Map, Detail;
     LinearLayout Detail_layout, Map_layout;
     myDBHelper myHelper;
     SQLiteDatabase db;
-    TextView perform_name, perform_date, perform_time, perform_home, perform_age;
+    TextView perform_name, perform_date, perform_time, perform_home, perform_age, perform_address;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,51 +44,41 @@ public class pdetailActivity extends AppCompatActivity {
         perform_home = (TextView) findViewById(R.id.perform_home);
         perform_date = (TextView) findViewById(R.id.perform_date);
         perform_age = (TextView) findViewById(R.id.perform_age);
-        Map = (Button) findViewById(R.id.Map);
-        Detail = (Button) findViewById(R.id.Detail);
+        perform_address = (TextView) findViewById(R.id.perform_address);
         Detail_layout = (LinearLayout) findViewById(R.id.Detail_layout);
-        Map_layout = (LinearLayout) findViewById(R.id.Map_layout);
 
-        Map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Detail_layout.setVisibility(View.GONE);
-                Map_layout.setVisibility(View.VISIBLE);
-            }
-        });
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
-        Detail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Detail_layout.setVisibility(View.VISIBLE);
-                Map_layout.setVisibility(View.GONE);
-                String var = getIntent().getStringExtra("name");
+        Detail_layout.setVisibility(View.VISIBLE);
+        String var = getIntent().getStringExtra("name");
 
-                db = myHelper.getReadableDatabase();
-                final Cursor cursor_w;
-                cursor_w = db.rawQuery("SELECT * FROM perform WHERE perform_name = ('" + var + "');", null);
-                cursor_w.moveToFirst();
+        db = myHelper.getReadableDatabase();
+        final Cursor cursor_w;
+        cursor_w = db.rawQuery("SELECT * FROM perform WHERE perform_name = ('" + var + "');", null);
+        cursor_w.moveToFirst();
 
-                if(cursor_w.getCount() > 0 ){
-                    perform_name.setText(cursor_w.getString(0));
-                    perform_date.setText(cursor_w.getString(1));
-                    perform_home.setText(cursor_w.getString(2));
-                    perform_age.setText(cursor_w.getString(3));
-                    perform_time.setText(cursor_w.getString(4));
-                }
+        if (cursor_w.getCount() > 0) {
+            perform_name.setText(cursor_w.getString(0));
+            perform_date.setText(cursor_w.getString(1));
+            perform_home.setText(cursor_w.getString(2));
+            perform_age.setText(cursor_w.getString(3));
+            perform_time.setText(cursor_w.getString(4));
+            perform_address.setText(cursor_w.getString(6));
+        }
 
-                cursor_w.close();
-                db.close();
+        cursor_w.close();
+        db.close();
 
 
-            }
-        });
     }
+
     public class myDBHelper extends SQLiteOpenHelper {
         public myDBHelper(Context context) {
             super(context, "Baby_app.db", null, 1);
         }
-        public void onCreate(SQLiteDatabase db){
+
+        public void onCreate(SQLiteDatabase db) {
 
         }
 
@@ -84,5 +86,21 @@ public class pdetailActivity extends AppCompatActivity {
         public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         }
+    }
+
+    public void onMapReady(final GoogleMap googleMap) {
+        mMap = googleMap;
+        Geocoder g = new Geocoder(this);
+        List<Address> address = null;
+
+        LatLng kunsan = new LatLng(35.6341117118, 129.3329628045);
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(kunsan);
+        markerOptions.title("민우빌딩");
+        mMap.addMarker(markerOptions);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 15));
     }
 }

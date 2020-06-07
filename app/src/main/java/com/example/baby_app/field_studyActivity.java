@@ -58,7 +58,7 @@ public class field_studyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getApplicationContext(), sdetailActivity.class);
-                intent.putExtra("name", study_arraylist.get(position));
+                intent.putExtra("study", study_arraylist.get(position));
                 startActivity(intent);
             }
         });

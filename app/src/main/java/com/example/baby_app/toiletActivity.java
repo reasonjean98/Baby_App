@@ -62,6 +62,6 @@ public class toiletActivity extends AppCompatActivity implements OnMapReadyCallb
         mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 15));
     }
 }

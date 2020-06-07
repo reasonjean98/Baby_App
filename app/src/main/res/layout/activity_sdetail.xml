@@ -10,169 +10,150 @@
         android:layout_height="match_parent"
         android:background="#FFCCCC"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="체험학습"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:gravity="center"/>
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        <Button
-            android:id="@+id/Detail"
-            android:layout_width="205dp"
-            android:layout_height="wrap_content"
-            android:background="#FFCCCC"
-            android:textSize="18dp"
-            android:text="상세정보보기"/>
-        <Button
-            android:id="@+id/Map"
-            android:layout_width="205dp"
-            android:layout_height="wrap_content"
-            android:background="#FFCCCC"
-            android:textSize="18dp"
-            android:text="지도보기"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="체험학습"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </LinearLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <!-- 상세 정보 부분 -->
+
         <LinearLayout
-            android:id="@+id/Detail_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFCCCC"
-            android:orientation="vertical">
-            <!-- 글 쓰는 부분 -->
+            android:layout_height="match_parent">
+            <!-- 상세 정보 부분 -->
             <LinearLayout
+                android:id="@+id/Detail_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
-                android:background="#FAFAFA"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:background="#FFCCCC"
+                android:orientation="vertical">
+                <!-- 글 쓰는 부분 -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textStyle="bold"
-                        android:text="마을명"
-                        android:textSize="16dp"/>
-                    <TextView
-                        android:id="@+id/country_name"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:background="#FAFAFA"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textStyle="bold"
-                        android:text="주소"
-                        android:textSize="16dp"/>
-                    <TextView
-                        android:id="@+id/address"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="마을명"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/country_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textStyle="bold"
-                        android:text="전화번호"
-                        android:textSize="16dp"/>
-                    <TextView
-                        android:id="@+id/phone"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:padding="10dp"
+                            android:text="주소"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autoLink="phone"
-                        android:textSize="16dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textStyle="bold"
-                        android:text="홈페이지"
-                        android:textSize="16dp"/>
-                    <TextView
-                        android:id="@+id/homepage"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="전화번호"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autoLink="phone"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autoLink="web"
-                        android:linksClickable="true"
-                        android:textSize="16dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="홈페이지"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/homepage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:linksClickable="true"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="120dp"
-                        android:text="체험명"
-                        android:textSize="16dp"/>
-                    <TextView
-                        android:id="@+id/program_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16dp"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="120dp"
+                            android:padding="10dp"
+                            android:text="체험명"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/program_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <fragment
+                        android:id="@+id/map"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/Map_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFCCCC"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="20dp"
-                android:background="#FAFAFA"
-                android:orientation="vertical"
-                android:padding="10dp">
-                <fragment
-                    android:id="@+id/map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </FrameLayout>
-
     </LinearLayout>
-
 </LinearLayout>

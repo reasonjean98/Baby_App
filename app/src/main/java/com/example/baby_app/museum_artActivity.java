@@ -63,7 +63,7 @@ public class museum_artActivity extends AppCompatActivity implements OnMapReadyC
         mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 15));
     }
 
 }
