@@ -53,7 +53,11 @@ public class libraryActivity extends AppCompatActivity implements OnMapReadyCall
 
                 if (parent.getItemAtPosition(position).toString().equals("거리별")) {
                     Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
-                } else if(parent.getItemAtPosition(position).toString().equals("200m")){
+                } else if (parent.getItemAtPosition(position).toString().equals("200m")) {
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                }else if (parent.getItemAtPosition(position).toString().equals("500m")) {
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                }else if (parent.getItemAtPosition(position).toString().equals("1000m")) {
                     Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -65,6 +69,8 @@ public class libraryActivity extends AppCompatActivity implements OnMapReadyCall
             }
         });
     }
+
+
 
     public class myDBHelper extends SQLiteOpenHelper {
         public myDBHelper(Context context) {
@@ -100,12 +106,19 @@ public class libraryActivity extends AppCompatActivity implements OnMapReadyCall
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(kunsan);
             markerOptions.title(title);
-
-
             mMap.addMarker(markerOptions);
             cursor_w.moveToNext();
 
+            LatLng my = new LatLng(37.5004448, 126.7499806);
+            MarkerOptions markerOptions2 = new MarkerOptions();
+            markerOptions2.position(my).title("내 위치");
+            mMap.addMarker(markerOptions2).showInfoWindow();
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(my));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions2.getPosition(), 11));
         }
+        cursor_w.close();
+        db.close();
+
 
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
@@ -116,57 +129,22 @@ public class libraryActivity extends AppCompatActivity implements OnMapReadyCall
                 db = myHelper.getReadableDatabase();
                 cursor_d = db.rawQuery("SELECT * FROM library WHERE library_name like '" + marker.getTitle() + "';", null);
                 cursor_d.moveToFirst();
-                dlg.setMessage("\n" + "평일 운영 시작 : " + cursor_d.getString(3) + "\n"
+                dlg.setMessage("평일 운영 시작 : " + cursor_d.getString(3) + "\n"
                         + "평일 운영 종료 : " + cursor_d.getString(4) + "\n"
                         + "토요일 운영 시작 : " + cursor_d.getString(5) + "\n"
                         + "토요일 운영 종료 : " + cursor_d.getString(6) + "\n"
                         + "전화번호 : " + cursor_d.getString(8) + "\n"
                         + "홈페이지 : " + cursor_d.getString(11));
 
-                dlg.setPositiveButton("확인",new DialogInterface.OnClickListener(){
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //토스트 메시지
-                        Toast.makeText(libraryActivity.this,"확인을 눌르셨습니다.",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(libraryActivity.this, "확인을 누르셨습니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dlg.show();
             }
         });
-
-        LatLng kunsan = new LatLng(37.5004448, 126.7499806);
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(kunsan);
-        mMap.addMarker(markerOptions);
-        markerOptions.title("내 위치!!!!!!!!!!!!!!!!");
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 13));
-
-        cursor_w.close();
-        db.close();
-    }
-
-
-    private double distance(double lat1, double lon1, double lat2, double lon2) {
-
-        double theta = lon1 - lon2;
-
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
-        dist = Math.acos(dist);
-        dist = rad2deg(dist);
-        dist = dist * 60 * 1.1515;
-        dist = dist * 1.609344;
-        return (dist);
-
-    }
-
-    private double rad2deg(double rad) {
-        return (rad * 180.0 / Math.PI);
-
-    }
-
-    private double deg2rad(double deg) {
-        return (deg * Math.PI / 180.0);
-
     }
 
 

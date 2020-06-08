@@ -67,7 +67,7 @@ public class field_studyActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 if(spinner_category1.getSelectedItem().toString().equals("만들기체험")){
-                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_category1.getSelectedItem().toString();
@@ -85,7 +85,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_category1.getSelectedItem().toString().equals("전통문화체험")){
-                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_category1.getSelectedItem().toString();
@@ -103,7 +103,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_category1.getSelectedItem().toString().equals("전통음식체험")){
-                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_category1.getSelectedItem().toString();
@@ -121,7 +121,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_category1.getSelectedItem().toString().equals("어촌생활체험")){
-                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_category1.getSelectedItem().toString();
@@ -139,7 +139,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_category1.getSelectedItem().toString().equals("농작물경작체험")){
-                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_category1.getSelectedItem().toString();
@@ -157,7 +157,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_category1.getSelectedItem().toString().equals("기타")){
-                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_category1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_category1.getSelectedItem().toString();
@@ -186,7 +186,7 @@ public class field_studyActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 if(spinner_city1.getSelectedItem().toString().equals("경기도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -204,7 +204,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("강원도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -222,7 +222,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("경상북도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -240,7 +240,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("경상남도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -258,7 +258,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("전라북도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -276,7 +276,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("전라남도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var1 = spinner_city1.getSelectedItem().toString();
@@ -295,7 +295,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("충청남도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -313,7 +313,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("충청북도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = spinner_city1.getSelectedItem().toString();
@@ -331,7 +331,7 @@ public class field_studyActivity extends AppCompatActivity {
                     db.close();
                 }
                 else if(spinner_city1.getSelectedItem().toString().equals("제주도")){
-                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), spinner_city1.getSelectedItem().toString() + "을/를 클릭하였습니다.", Toast.LENGTH_SHORT).show();
                     db = myHelper.getReadableDatabase();
                     final Cursor cursor_w;
                     String var = "제주특별자치도";
@@ -355,7 +355,6 @@ public class field_studyActivity extends AppCompatActivity {
 
             }
         });
-
     }
     public class myDBHelper extends SQLiteOpenHelper{
         public myDBHelper(Context context) {

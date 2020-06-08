@@ -96,7 +96,6 @@ public class sdetailActivity extends AppCompatActivity implements OnMapReadyCall
             String title = cursor_w.getString(0);
             float latitude = cursor_w.getFloat(4);
             float longitude = cursor_w.getFloat(5);
-            Toast.makeText(getApplicationContext(), latitude + "," + longitude + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
             LatLng kunsan = new LatLng(latitude, longitude);
 
             MarkerOptions markerOptions = new MarkerOptions();

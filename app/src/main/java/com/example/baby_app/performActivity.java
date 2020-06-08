@@ -181,35 +181,72 @@ public class performActivity extends AppCompatActivity {
 
             }
         });
-// % 어떻게 쓰는지 확인하고 저거 하자
-//        spinner_category2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-//                if(spinner_age.getSelectedItem().toString().equals("뮤지컬")){
-//                    Toast.makeText(getApplicationContext(), spinner_age.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
-//                    db = myHelper.getReadableDatabase();
-//                    final Cursor cursor_w;
-//                    String var = "뮤지컬";
-//                    cursor_w = db.rawQuery("SELECT * FROM perform WHERE category like ('" + var + "');", null);
-//                    cursor_w.moveToFirst();
-//                    age_arraylist.clear();
-//                    for(int i = 0; i < cursor_w.getCount(); i++){
-//                        String perform_name = cursor_w.getString(0);
-//                        age_arraylist.add(perform_name);
-//                        age_adapter.notifyDataSetChanged();
-//                        cursor_w.moveToNext();
-//                    }
-//
-//                    cursor_w.close();
-//                    db.close();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
+
+        spinner_category2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if(spinner_category2.getSelectedItem().toString().equals("뮤지컬")){
+                    Toast.makeText(getApplicationContext(), spinner_category2.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String category = spinner_category2.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM perform WHERE category like ('" + category + "%" + "');", null);
+                    cursor_w.moveToFirst();
+
+                    age_arraylist.clear();
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
+                        String perform_name = cursor_w.getString(0);
+                        age_arraylist.add(perform_name);
+                        age_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }else if(spinner_category2.getSelectedItem().toString().equals("연극")){
+                    Toast.makeText(getApplicationContext(), spinner_category2.getSelectedItem().toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String category = spinner_category2.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM perform WHERE category like ('" + category + "%" + "');", null);
+                    cursor_w.moveToFirst();
+
+                    age_arraylist.clear();
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
+                        String perform_name = cursor_w.getString(0);
+                        age_arraylist.add(perform_name);
+                        age_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }else if(spinner_category2.getSelectedItem().toString().equals("분야별")){
+                    db = myHelper.getReadableDatabase();
+                    final Cursor cursor_w;
+                    String category = spinner_category2.getSelectedItem().toString();
+                    cursor_w = db.rawQuery("SELECT * FROM perform;", null);
+                    cursor_w.moveToFirst();
+
+                    age_arraylist.clear();
+                    for (int i = 0; i < cursor_w.getCount(); i++) {
+                        String perform_name = cursor_w.getString(0);
+                        age_arraylist.add(perform_name);
+                        age_adapter.notifyDataSetChanged();
+                        cursor_w.moveToNext();
+                    }
+
+                    cursor_w.close();
+                    db.close();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         // 리스트에 있는 요소 클릭 시 상세보기 페이지로 넘어가게 함
         age_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

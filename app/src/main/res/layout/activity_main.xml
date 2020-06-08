@@ -6,28 +6,21 @@
     android:theme="@style/EdittextTheme">
 
 
-    <Spinner
-        android:id="@+id/location"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:entries="@array/city"
-        android:overlapAnchor="false"
-        android:spinnerMode="dropdown"
-        android:text="지역별" />
-
     <EditText
         android:id="@+id/search"
-        android:layout_width="180dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/weather"
-        android:layout_toRightOf="@+id/location"
         android:singleLine="true" />
+
 
     <Button
         android:id="@+id/search_btn"
-        android:layout_width="70dp"
+        android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
         android:layout_marginBottom="1dp"
         android:layout_toRightOf="@+id/search"
         android:background="#FFCCCC"

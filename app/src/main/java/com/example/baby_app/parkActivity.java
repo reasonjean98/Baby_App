@@ -64,8 +64,7 @@ public class parkActivity extends AppCompatActivity implements OnMapReadyCallbac
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 if (parent.getItemAtPosition(position).toString().equals("전체")) {
                     Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
@@ -103,7 +102,7 @@ public class parkActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         db = myHelper.getReadableDatabase();
         final Cursor cursor_w;
-        cursor_w = db.rawQuery("SELECT * FROM park;", null);
+        cursor_w = db.rawQuery("SELECT * FROM park limit 3000;", null);
         cursor_w.moveToFirst();
 
         for (int i = 0; i < cursor_w.getCount(); i++) {
@@ -118,6 +117,13 @@ public class parkActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.addMarker(markerOptions);
 
             cursor_w.moveToNext();
+
+            LatLng my = new LatLng(37.6136948, 126.679295);
+            MarkerOptions markerOptions2 = new MarkerOptions();
+            markerOptions2.position(my).title("내 위치");
+            mMap.addMarker(markerOptions2).showInfoWindow();
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(my));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions2.getPosition(), 11));
         }
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
@@ -128,7 +134,7 @@ public class parkActivity extends AppCompatActivity implements OnMapReadyCallbac
                 db = myHelper.getReadableDatabase();
                 cursor_d = db.rawQuery("SELECT * FROM park WHERE park_name like '" + marker.getTitle() + "';", null);
                 cursor_d.moveToFirst();
-                dlg.setMessage("\n" + "공원 구분 : " + cursor_d.getString(1) + "\n"
+                dlg.setMessage("공원 구분 : " + cursor_d.getString(1) + "\n"
                         + "도로 주소 : " + cursor_d.getString(2) + "\n"
                         + "지번 주소 : " + cursor_d.getString(3) + "\n"
                         + "전화번호 : " + cursor_d.getString(6));
@@ -136,21 +142,251 @@ public class parkActivity extends AppCompatActivity implements OnMapReadyCallbac
                 dlg.setPositiveButton("확인",new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
                         //토스트 메시지
-                        Toast.makeText(parkActivity.this,"확인을 눌르셨습니다.",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(parkActivity.this,"확인을 누르셨습니다.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 dlg.show();
             }
         });
 
-        LatLng kunsan = new LatLng(37.6137327, 126.6968904);
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(kunsan);
-        mMap.addMarker(markerOptions);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(kunsan));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerOptions.getPosition(), 13));
-
         cursor_w.close();
         db.close();
+
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (parent.getItemAtPosition(position).toString().equals("전체")) {
+                    Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
+                } else if(parent.getItemAtPosition(position).toString().equals("어린이공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                } else if(parent.getItemAtPosition(position).toString().equals("근린공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                } else if(parent.getItemAtPosition(position).toString().equals("소공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                } else if(parent.getItemAtPosition(position).toString().equals("문화공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                } else if(parent.getItemAtPosition(position).toString().equals("체육공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                } else if(parent.getItemAtPosition(position).toString().equals("수변공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                }else if(parent.getItemAtPosition(position).toString().equals("역사공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                }else if(parent.getItemAtPosition(position).toString().equals("묘지공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                }else if(parent.getItemAtPosition(position).toString().equals("도시공업공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                }else if(parent.getItemAtPosition(position).toString().equals("문화공원")){
+                    Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString() + "클릭하였습니다.", Toast.LENGTH_SHORT).show();
+                    final Cursor cursor_d;
+                    String title1 = parent.getItemAtPosition(position).toString();
+                    db = myHelper.getReadableDatabase();
+                    cursor_d = db.rawQuery("SELECT * FROM park WHERE park_category like '" + title1 + "';", null);
+                    cursor_d.moveToFirst();
+
+                    mMap.clear();
+                    for (int i = 0; i < cursor_d.getCount(); i++) {
+                        String title = cursor_d.getString(0);
+                        float latitude = cursor_d.getFloat(4);
+                        float longitude = cursor_d.getFloat(5);
+                        LatLng all = new LatLng(latitude, longitude);
+
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(all);
+                        markerOptions.title(title);
+                        mMap.addMarker(markerOptions);
+
+                        cursor_d.moveToNext();
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
     }
 }
